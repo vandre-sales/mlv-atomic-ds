@@ -1,4 +1,4 @@
-// src/app/core/models/design-tokens.interface.ts
+// src/app/core/data/contracts/design-tokens.interface.ts
 
 /**
  * A estrutura raiz que encapsula todos os design tokens.
