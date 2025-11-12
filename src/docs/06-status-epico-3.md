@@ -1,3 +1,7 @@
+## Legenda de Status
+- [✅] **Concluído:** Todas as tarefas do Épico/Parte/Tarefa/Passo foram finalizadas.
+- [🟨] **Pendente:** Existem Épico/Parte/Tarefa/Passo pendentes ou em progresso.
+
 ### [🟨] Épico 3: A Camada de Inteligência e Entrega (O "Guardião" - Lei 4)
 *Propósito: Implementar as ferramentas de validação de qualidade (Acessibilidade) e a funcionalidade de entrega (Exportar).*
 

@@ -1,3 +1,7 @@
+## Legenda de Status
+- [✅] **Concluído:** Todas as tarefas do Épico/Parte/Tarefa/Passo foram finalizadas.
+- [🟨] **Pendente:** Existem Épico/Parte/Tarefa/Passo pendentes ou em progresso.
+
 ### [🟨] Épico 2: A Biblioteca Atômica (O "Produto" - Lei 3)
 *Propósito: Construir a biblioteca de componentes puros (`components/design/`) que consomem o Motor de Estilo.*
 

@@ -3,7 +3,7 @@ src/
 ├── app/
 │   │
 │   ├── core/           # ÉPICO 0 & 4: FUNDAÇÃO (LEIS 1, 2) E GUARDIÃO (LEI 4)
-│   │   ├── engine/         # Lei 1: Pipeline de Microsserviços (Motor)
+│   │   ├── services/         # Lei 1: Pipeline de Microsserviços (Motor)
 │   │   │   ├── 01-persistence.service.ts
 │   │   │   ├── 02-token-state.service.ts
 │   │   │   ├── 03-palette-generation.service.ts

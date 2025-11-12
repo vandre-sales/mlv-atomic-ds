@@ -1,3 +1,7 @@
+## Legenda de Status
+- [✅] **Concluído:** Todas as tarefas do Épico/Parte/Tarefa/Passo foram finalizadas.
+- [🟨] **Pendente:** Existem Épico/Parte/Tarefa/Passo pendentes ou em progresso.
+
 ### [🟨] Épico 1: A Forja (A "Ferramenta" - Épicos 1 & 2 do Conceito)
 *Propósito: Construir a UI da Ferramenta (os "Laboratórios") que permite a visualização e mutação do DNA (Tokens) definido no Épico 0.*
 
