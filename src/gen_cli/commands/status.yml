@@ -1,14 +1,23 @@
 command: "status"
-description: "Fornece uma visão geral do estado atual do projeto, lendo e interpretando o arquivo src/docs/06-status.md."
+description: "Fornece uma visão geral do estado do projeto ou um relatório detalhado de um Épico específico. Suporta sincronização com o código-fonte."
 persona:
-  role: "Gerente de Projeto"
-  system_prompt: "Sua tarefa é atuar como um Gerente de Projeto. Leia e analise o arquivo src/docs/06-status.md, reporte o status (em andamento ou bloqueado), liste os próximos passos ou explique os bloqueios e, se a flag --sync for usada, sincronize o status com o código-fonte real, atualizando o arquivo para refletir com precisão a implementação das funcionalidades. Além disso, gere a árvore de diretórios do projeto e salve em src/docs/07-project-tree.md."
+  role: "Gerente de Projeto Ágil"
+  system_prompt: |
+    Sua tarefa é atuar como um Gerente de Projeto Ágil. Sua principal função é interpretar e relatar o progresso do projeto com base nos arquivos de status modulares.
+
+    - Se nenhum Épico for especificado, leia `src/docs/06-status.md` e apresente a visão geral de alto nível.
+    - Se um Épico for especificado com `--epic <number>`, leia o arquivo detalhado correspondente (ex: `src/docs/06-status-epico-0.md`) e reporte seu conteúdo.
+    - Se a flag `--sync` for usada, sua responsabilidade se expande: você deve analisar o código-fonte, comparar o estado real com o documentado, atualizar os arquivos `.md` para refletir a verdade e, finalmente, apresentar um resumo das sincronizações realizadas. A geração da árvore de diretórios também faz parte deste processo.
 
 args:
+  - name: "--epic"
+    type: "string"
+    required: false
+    description: "Especifica o número de um Épico para focar a análise de status (ex: --epic 0)."
   - name: "--sync"
     type: "flag"
     required: false
-    description: "Sincroniza o arquivo de status com o estado real do código-fonte."
+    description: "Sincroniza os arquivos de status com o estado real do código-fonte. Pode ser combinado com --epic."
   - name: "--help"
     type: "flag"
     required: false
@@ -16,14 +25,27 @@ args:
 
 task:
   - "SE a flag `--help` estiver presente, exiba o conteúdo de `src/gen_cli/commands/status.md` e encerre."
-  - "Leia o conteúdo do arquivo `src/docs/06-status.md`."
-  - "Analise o status geral do projeto (Em andamento, Bloqueado)."
-  - "SE o status for 'Em andamento':"
-  - "  Liste as próximas tarefas planejadas."
-  - "ELSE SE o status for 'Bloqueado':"
-  - "  Explique a causa do bloqueio e sugira os passos necessários para o desbloqueio."
-  - "SE a flag `--sync` estiver presente:"
-  - "  Escaneie o código-fonte para verificar se as tarefas marcadas como 'concluídas' no arquivo .md correspondem a funcionalidades implementadas."
-  - "  GERE A ARVORE DE DIRETORIOS E ARQUIVOS DE `/home/user/mlv-atomic-angular/*` E ATUALIZE O ARQUIVO `src/docs/07-project-tree.md`."
-  - "  Atualize o arquivo `src/docs/06-status.md` para corrigir quaisquer discrepâncias encontradas."
-  - "  Apresente um resumo das alterações feitas no arquivo de status."
+  
+  - "SE o argumento `--epic` NÃO for fornecido:"
+  - "  SE a flag `--sync` NÃO estiver presente:"
+  - "    Leia e exiba o conteúdo de `src/docs/06-status.md`."
+  - "  ELSE (sync geral):"
+  - "    PARA CADA arquivo `src/docs/06-status-epico-*.md`:"
+  - "      Analise o conteúdo, escaneie o código-fonte para cada tarefa e atualize os status ([✅], [🟨]) no arquivo."
+  - "    Após sincronizar todos os arquivos de Épico, leia-os novamente para calcular o status agregado de cada Parte e Épico."
+  - "    Reconstrua e atualize o arquivo mestre `src/docs/06-status.md` com o novo painel de acompanhamento."
+  - "    Apresente um resumo das alterações e o novo painel de alto nível."
+  
+  - "SE o argumento `--epic <number>` FOR fornecido:"
+  - "  Construa o caminho do arquivo alvo: `filePath = 'src/docs/06-status-epico-' + <number> + '.md'`."
+  - "  SE a flag `--sync` NÃO estiver presente:"
+  - "    Leia e exiba o conteúdo do `filePath`."
+  - "  ELSE (sync focado):"
+  - "    Leia o conteúdo do `filePath`."
+  - "    Escaneie o código-fonte correspondente às tarefas APENAS deste Épico."
+  - "    Atualize os status ([✅], [🟨]) no arquivo `filePath`."
+  - "    Apresente um resumo das alterações feitas no Épico especificado."
+
+  - "SE a flag `--sync` estiver presente (em qualquer modo):"
+  - "  Execute o comando `tree -a -I 'node_modules|dist' . > src/docs/07-project-tree.md` para atualizar a árvore de diretórios do projeto."
+  - "  Informe ao usuário que a árvore de diretórios foi atualizada."

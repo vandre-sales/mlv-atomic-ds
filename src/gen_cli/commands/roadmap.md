@@ -51,7 +51,7 @@ Você deve ler detalhadamente o conteudo dos arquivos:
 - src/docs/03-perfect-flow.md
 - src/docs/04-agile-framework.md
 
-A partir da compreensão profunda desses documentos, você deve refatorar (se existir) ou criar um roadmap completo e ultra granular em `src/docs/05-roadmap.md` levando em consideração o estado atual dos arquivos fonte do projeto e o fluxo esperado para a implementação total.
+A partir da compreensão profunda desses documentos, você deve refatorar (se existir) ou criar um roadmap completo e ultra granular em `src/docs/05-roadmap-refact.md` levando em consideração o estado atual dos arquivos fonte do projeto e o fluxo esperado para a implementação total.
 
 ---
 

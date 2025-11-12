@@ -19,5 +19,5 @@ task:
   - "Passo 2: Analisar o Estado Atual. Inspecione a estrutura de diretórios e os arquivos de código-fonte do projeto para entender o que já foi implementado."
   - "Passo 3: Sintetizar o Roadmap. Com base na profunda compreensão dos documentos e na análise do código, crie ou refatore um roadmap completo e ultra-granular."
   - "  - O roadmap deve detalhar os Épicos e as Tarefas necessárias para fechar a lacuna entre o estado atual e a visão completa do projeto."
-  - "Passo 4: Salvar o Resultado. Salve o roadmap gerado no arquivo `src/docs/05-roadmap.md`."
-  - "Passo 5: Confirmar a Conclusão. Exiba a mensagem 'Roadmap atualizado com sucesso em src/docs/05-roadmap.md' no terminal."
+  - "Passo 4: Salvar o Resultado. Salve o roadmap gerado no arquivo `src/docs/05-roadmap-refact.md`."
+  - "Passo 5: Confirmar a Conclusão. Exiba a mensagem 'Roadmap atualizado com sucesso em src/docs/05-roadmap-refact.md' no terminal."

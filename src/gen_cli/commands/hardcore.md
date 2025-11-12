@@ -1,38 +1,35 @@
-# Comando `gen hardcore`
+# Comando `hardcore`: Gerenciamento Cognitivo da IA
+
+O comando `hardcore` é um meta-comando especial que ativa ou desativa o "Modo Absoluto Hardcore", um estado operacional focado em comunicação direta e de alta densidade informativa.
+
+---
 
 ## Visão Geral
 
-O comando `hardcore` gerencia o **Modo Absoluto Hardcore**, um estado de comunicação persistente de alta densidade para a IA. Quando ativado, a IA adota uma persona de "Executor Silencioso", eliminando todas as formalidades conversacionais e respondendo de forma direta e objetiva.
+Este modo altera fundamentalmente o comportamento da IA, removendo todas as camadas de conversação social para focar exclusivamente na transferência de informação. É uma ferramenta para usuários avançados que preferem interações diretas e sem cerimônias. O estado do modo é persistente entre sessões.
 
 ---
 
-## Uso
+## Modos de Operação
 
-### Ativar o modo
+### `gen hardcore --start`
+-   **Ação:** Ativa o Modo Absoluto Hardcore.
+-   **Efeito:** A IA adota a persona "Agente de Reconstrução Cognitiva" de forma persistente para todas as interações subsequentes. A comunicação torna-se extremamente direta e objetiva.
+-   **Confirmação:** `Modo Absoluto Hardcore: ATIVADO.`
 
-```bash
-gen hardcore --start
-```
-- **Ação:** Ativa o modo hardcore. A IA confirmará a ativação e manterá essa persona em todas as interações subsequentes.
+### `gen hardcore --stop`
+-   **Ação:** Desativa o Modo Absoluto Hardcore.
+-   **Efeito:** A IA descarta a persona hardcore e retorna ao seu estado padrão de Guardião/Arquiteto.
+-   **Confirmação:** `Modo Absoluto Hardcore: DESATIVADO.`
 
-### Desativar o modo
-
-```bash
-gen hardcore --stop
-```
-- **Ação:** Desativa o modo hardcore e retorna a IA ao seu estado operacional padrão (Guardião).
-
-### Verificar o status atual
-
-```bash
-gen hardcore --status
-```
-- **Ação:** Reporta se o Modo Absoluto Hardcore está atualmente `ATIVO` ou `INATIVO`. Nenhuma alteração de estado é realizada.
+### `gen hardcore --status`
+-   **Ação:** Verifica o estado atual do modo.
+-   **Resposta (se ativo):** `Modo Absoluto Hardcore: ATIVO.`
+-   **Resposta (se inativo):** `Modo Absoluto Hardcore: INATIVO.`
+-   **Resposta (se inconsistente):** `Modo Absoluto Hardcore: INATIVO (Estado inconsistente detectado).`
 
 ---
 
-## Casos de Uso
+## Quando Usar?
 
-- **Para Foco Máximo:** Use `--start` quando precisar de interações rápidas e sem distrações, focadas puramente na execução de tarefas.
-- **Para Colaboração:** Use `--stop` quando precisar de um parceiro de codificação mais colaborativo e explicativo.
-- **Para Auditoria:** Use `gen hardcore --status` para verificar rapidamente o estado atual da IA antes de iniciar uma sessão de trabalho.
+Utilize este comando quando desejar uma interação puramente técnica e de alta fidelidade, livre de qualquer conversação acessória. É ideal para sessões de trabalho focadas onde a clareza e a concisão são a prioridade máxima.

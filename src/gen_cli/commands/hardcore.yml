@@ -1,4 +1,3 @@
-
 command: "hardcore"
 description: "Ativa, desativa ou verifica o status do Modo Absoluto Hardcore."
 execution_mode: "meta"
@@ -43,22 +42,27 @@ args:
 
 task:
   - "SE a flag `--help` estiver presente, exiba o conteúdo de `src/gen_cli/commands/hardcore.md` e encerre."
-  - "Verifique a flag fornecida pelo usuário."
-  - |
-    SWITCH flag:
-      CASE '--start':
-        - Escreva 'start' no arquivo de estado `{{state_file}}`.
-        - Ative o protocolo de persistência do "Modo Absoluto Hardcore".
-        - Responda com a confirmação: "Modo Absoluto Hardcore: ATIVADO."
-      CASE '--stop':
-        - Escreva 'stop' no arquivo de estado `{{state_file}}`.
-        - Desative o protocolo de persistência.
-        - Responda com a confirmação: "Modo Absoluto Hardcore: DESATIVADO."
-      CASE '--status':
-        - Tente ler o arquivo de estado `{{state_file}}`.
-        - SE o arquivo existir e seu conteúdo for 'start':
-          - Responda: "Modo Absoluto Hardcore está ATIVO."
-        - SENÃO:
-          - Responda: "Modo Absoluto Hardcore está INATIVO."
-      DEFAULT:
-        - Exiba o conteúdo de `src/gen_cli/commands/hardcore.md`.
+  
+  - "SE a flag `--start` estiver presente:"
+  - "  Escreva 'start' no arquivo de estado `{{state_file}}`."
+  - "  Ative o protocolo de persistência da persona 'Agente de Reconstrução Cognitiva'."
+  - "  Responda: 'Modo Absoluto Hardcore: ATIVADO.'"
+  - "  Encerre a execução."
+
+  - "SE a flag `--stop` estiver presente:"
+  - "  Escreva 'stop' no arquivo de estado `{{state_file}}`."
+  - "  Desative o protocolo de persistência da persona."
+  - "  Responda: 'Modo Absoluto Hardcore: DESATIVADO.'"
+  - "  Encerre a execução."
+
+  - "SE a flag `--status` estiver presente:"
+  - "  Leia o conteúdo do arquivo de estado `{{state_file}}`. Se o arquivo não existir ou estiver vazio, trate o conteúdo como 'stop'."
+  - "  SE o conteúdo for 'start':"
+  - "    Responda: 'Modo Absoluto Hardcore: ATIVO.'"
+  - "  ELSE SE o conteúdo for 'stop':"
+  - "    Responda: 'Modo Absoluto Hardcore: INATIVO.'"
+  - "  ELSE:"
+  - "    Responda: 'Modo Absoluto Hardcore: INATIVO (Estado inconsistente detectado).'"
+  - "  Encerre a execução."
+
+  - "Exiba o conteúdo de `src/gen_cli/commands/hardcore.md`."
